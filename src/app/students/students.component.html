@@ -1,0 +1,95 @@
+<section class="page-section cta">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 mx-auto">
+                <div class="cta-inner bg-faded text-center rounded">
+                    <h2 class="section-heading mb-5">
+                        <span class="section-heading-upper">Come On In</span>
+                        <span class="section-heading-lower">Student Space</span>
+                    </h2>
+                    
+                    <table class="table mb-5 text-left mx-auto">
+                        <thead>
+                          <tr class="inline-table d-flex"> 
+                            <th >FirstName</th>
+                            <th class="ms-auto">LastName</th>
+                            <th class="ms-auto">Age</th>
+                            <th class="ms-auto">Study Field</th>
+                            <th class="ms-auto">University</th>
+                            <th class="ms-auto">Phone</th>
+                            <th class="ms-auto">D/U</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                         <tr class="inline-table d-flex" *ngFor="let std of students" >
+                            <td>{{std.FirstName}}</td>
+                            <td class="ms-auto">{{std.LastName}}</td>
+                            <td class="ms-auto">{{std.Age}}</td>
+                            <td class="ms-auto">{{std.studyField}}</td>
+                            <td class="ms-auto">{{std.University}}</td>
+                            <td class="ms-auto">{{std.Phone}}</td>
+                            <td class="ms-auto"> 
+                                <div  style="display: inline-table;" class="intro-button mx-auto">
+                                    <button class="btn btn-primary" (click)= update(std)>Update</button>
+                                </div>
+                                <div style="display: inline-table;" class="intro-button mx-auto">
+                                    <button class="btn btn-primary " (click)= delete(std)>Delete</button>
+                                </div>  
+                            </td>
+                          </tr>
+                        </tbody>
+                    </table>
+                    <p class="address mb-5">
+                        <em>
+                            <div style="display: inline-table;" class="intro-button mx-auto">
+                                <button  class="btn btn-primary btn-xl" (click)= show() >Add Student</button>
+                            </div>
+                        </em>
+                    </p>
+                 <form [formGroup]="addForm" (ngSubmit)="addStudent()" *ngIf = "x">
+                        <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                Student FirstName
+                                <span class="ms-auto">
+                                     <input formControlName="firstName" type="text" class="form-control" placeholder="Enter firstname">
+                                </span>
+                            </li>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                Student LastName
+                                <span class="ms-auto">
+                                     <input formControlName="lastName" type="text" class="form-control" placeholder="Enter lastname">
+                                </span>
+                            </li>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                Age
+                                <span class="ms-auto">
+                                     <input formControlName="age" type="text" class="form-control" placeholder="Enter age">
+                                </span>
+                            </li>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                Study Field
+                                <span class="ms-auto">
+                                     <input formControlName="studyField" type="text" class="form-control" placeholder="Enter study field">
+                                </span>
+                            </li>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                University
+                                <span class="ms-auto">
+                                     <input formControlName="university" type="text" class="form-control" placeholder="Enter university">
+                                </span>
+                            </li>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                Phone Number
+                                <span class="ms-auto">
+                                     <input formControlName="phone" type="text" class="form-control" placeholder="Enter phone">
+                                </span>
+                            </li>
+                        </ul>
+                        <button class="btn btn-primary btn-xl" [disabled]="addForm.invalid"  type="submit" >Submit</button>
+                    </form>
+                 
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

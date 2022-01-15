@@ -1,0 +1,96 @@
+<section class="page-section cta">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 mx-auto">
+                <div class="cta-inner bg-faded text-center rounded">
+                    <h2 class="section-heading mb-5">
+                        <span class="section-heading-upper">Come On In</span>
+                        <span class="section-heading-lower">Books Space</span>
+                    </h2>
+                    
+                    <table class="table mb-3 mx-auto text-center">
+                        <thead>
+                          <tr class="inline-table d-flex"> 
+                            <th>Title</th>
+                            <th class="col-md-3">Author</th>
+                            <th class="col-md-3">Description</th>
+                            <th class="col-md-3">idStudent</th>
+                            <th class="col-md-3">D/U</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                  <tr class="inline-table d-flex" >
+                            <td > aaaaa</td>
+                            <td  class="col-md-3">bbb</td>
+                            <td  class="col-md-3">vvv</td>
+                            <td class="col-md-3">vv</td>
+                            <td  class="col-md-3"> 
+                                <div  style="display: inline-table;" class="intro-button mx-auto">
+                                    <button class="btn btn-primary" (click)= update()>Update </button>
+                                </div>
+                        
+                                <div style="display: inline-table;" class="intro-button mx-auto">
+                                    <button class="btn btn-primary " >Delete</button>
+                                </div>  
+                            </td>
+                        </tr>
+                        
+                         <tr class="inline-table d-flex" *ngFor="let book of books" >
+                            <td >{{book.bookName}}</td>
+                            <td  class="col-md-4">{{book.bookAuthor}}</td>
+                            <td  class="col-md-4">{{book.bookEmprunte}}</td>
+                            <td  class="col-md-4">{{book.studentId}}</td>
+                            <td  class="col-md-4"> 
+                                <div  style="display: inline-table;" class="intro-button mx-auto">
+                                    <button class="btn btn-primary" (click)= update(book)>Update</button>
+                                </div>
+                                <br>
+                                <div style="display: inline-table;" class="intro-button mx-auto">
+                                    <button class="btn btn-primary " (click)= delete(book)>Delete</button>
+                                </div>  
+                            </td>
+                          </tr>
+                        </tbody>
+                    </table>
+                    <p class="address mb-5">
+                        <em>
+                            <div style="display: inline-table;" class="intro-button mx-auto">
+                                <button  class="btn btn-primary btn-xl" (click)= show() >Add Book</button>
+                            </div>
+                        </em>
+                    </p>
+                 <form [formGroup]="addForm" (ngSubmit)="addBook()" *ngIf = "x">
+                        <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                Book Title
+                                <span class="ms-auto">
+                                     <input formControlName="bookName" type="text" class="form-control" placeholder="Enter title">
+                                </span>
+                            </li>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                Student Id
+                                <span class="ms-auto">
+                                     <input formControlName="studentId" type="text" class="form-control" placeholder="Enter ID student">
+                                </span>
+                            </li>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                Author
+                                <span class="ms-auto">
+                                     <input formControlName="bookAuthor" type="text" class="form-control" placeholder="Enter author">
+                                </span>
+                            </li>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                Empreinte
+                                <span class="ms-auto">
+                                     <input formControlName="bookEmprunte" type="text" class="form-control" placeholder="Enter empreinte">
+                                </span>
+                            </li>
+                        </ul>
+                        <button class="btn btn-primary btn-xl" [disabled]="addForm.invalid"  type="submit" >Submit</button>
+                    </form>
+                 
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
